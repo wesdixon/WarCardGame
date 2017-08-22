@@ -55,6 +55,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZDV-nG-Gpm">
                                         <rect key="frame" x="130.5" y="317.5" width="82" height="31"/>
                                         <state key="normal" image="dealbutton"/>
+                                        <connections>
+                                            <action selector="dealTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gGS-rx-UbQ"/>
+                                        </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="top" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="mHP-Dc-k6D" userLabel="ScoreLabelStackView">
                                         <rect key="frame" x="66" y="388.5" width="211" height="258.5"/>
