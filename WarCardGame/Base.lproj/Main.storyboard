@@ -52,15 +52,32 @@
                                             </imageView>
                                         </subviews>
                                     </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="p05-hg-pWx" userLabel="TimerStackView">
+                                        <rect key="frame" x="143" y="317.5" width="57" height="72"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Timer:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="413-PA-UiD" userLabel="Timer:">
+                                                <rect key="frame" x="0.0" y="0.0" width="57" height="24"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Me-xl-0PF">
+                                                <rect key="frame" x="16" y="24" width="25" height="48"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZDV-nG-Gpm">
-                                        <rect key="frame" x="130.5" y="317.5" width="82" height="31"/>
+                                        <rect key="frame" x="130.5" y="429.5" width="82" height="31"/>
                                         <state key="normal" image="dealbutton"/>
                                         <connections>
                                             <action selector="dealTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gGS-rx-UbQ"/>
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="top" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="mHP-Dc-k6D" userLabel="ScoreLabelStackView">
-                                        <rect key="frame" x="66" y="388.5" width="211" height="258.5"/>
+                                        <rect key="frame" x="66" y="500.5" width="211" height="146.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="12m-D6-eo9" userLabel="LeftScoreStackView">
                                                 <rect key="frame" x="0.0" y="0.0" width="55.5" height="72"/>
@@ -114,10 +131,12 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="dealButton" destination="ZDV-nG-Gpm" id="Ayk-5Q-Wse"/>
                         <outlet property="leftCard" destination="iIs-4J-4Ok" id="MI1-z3-AlG"/>
                         <outlet property="leftScore" destination="acy-d2-icd" id="ZuK-bb-Xsu"/>
                         <outlet property="rightCard" destination="IC6-cb-zVq" id="ITv-nw-mqn"/>
                         <outlet property="rightScore" destination="mg8-4c-xch" id="LXz-cM-EBK"/>
+                        <outlet property="timerLabel" destination="1Me-xl-0PF" id="tIm-yS-d7q"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

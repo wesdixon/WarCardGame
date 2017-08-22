@@ -15,20 +15,78 @@ class ViewController: UIViewController {
     @IBOutlet weak var leftScore: UILabel!
     @IBOutlet weak var rightScore: UILabel!
     
+    @IBOutlet weak var dealButton: UIButton!
+    @IBOutlet weak var timerLabel: UILabel!
+    
+    
     let allCards = ["card2", "card3", "card4", "card5", "card6", "card7", "card8", "card9", "card10", "jack", "queen", "king", "ace"]
     
     var leftScoreAmount = 0
     var rightScoreAmount = 0
     
+    var timer:Timer?
+    var countdown = 20
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        // Set timer label
+        timerLabel.text = String(countdown)
+        
+        // Initialize timer
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerFired(_:)), userInfo: nil, repeats: true)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    
+    // Timer triggered function
+    func timerFired(_ timerThatFired:Timer) {
+        
+        if countdown == 0 {
+            
+            // Stop the timer
+            timer?.invalidate()
+            
+            // See who won the game, so info can be used in alert
+            var messageString = ""
+            
+            if leftScoreAmount > rightScoreAmount {
+                messageString = "Player won!"
+            }
+            else if leftScoreAmount < rightScoreAmount {
+                messageString = "CPU won!"
+            }
+            else {
+                messageString = "It's a tie!"
+            }
+            
+            // Create alert
+            
+            let alert = UIAlertController(title: "Done!", message: messageString, preferredStyle: .alert)
+            
+            let okButton = UIAlertAction(title: "Ok", style: .default, handler: nil)
+            
+            alert.addAction(okButton)
+            
+            // Present the alert
+            present(alert, animated: true, completion: nil)
+            
+            // Invalidate the button so game cannot continue
+            dealButton.isEnabled = false
+            
+            return
+        }
+        
+        countdown -= 1
+        
+        // Update the timer label
+        
+        timerLabel.text = String(countdown)
     }
     
 
