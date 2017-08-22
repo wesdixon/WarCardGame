@@ -15,7 +15,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var leftScore: UILabel!
     @IBOutlet weak var rightScore: UILabel!
     
-    let allCards = ["ace", "card2", "card3", "card4", "card5", "card6", "card7", "card8", "card9", "card10", "jack", "queen", "king"]
+    let allCards = ["card2", "card3", "card4", "card5", "card6", "card7", "card8", "card9", "card10", "jack", "queen", "king", "ace"]
+    
+    var leftScoreAmount = 0
+    var rightScoreAmount = 0
     
     
     override func viewDidLoad() {
@@ -38,6 +41,27 @@ class ViewController: UIViewController {
         // Generate random number to assign right card with
         let rightNumber = Int(arc4random_uniform(13))
         rightCard.image = UIImage(named: allCards[rightNumber])
+        
+        // Check to see who won that round
+        
+        if leftNumber > rightNumber {
+            
+            // Player won that round
+            // Update the left score
+            leftScoreAmount += 1
+            leftScore.text = String(leftScoreAmount)
+        }
+        else if leftNumber == rightNumber {
+            
+            // Player and CPU tied
+        }
+        else {
+            
+            //CPU Won
+            // Update the right score
+            rightScoreAmount += 1
+            rightScore.text = String(rightScoreAmount)
+        }
         
     }
 
